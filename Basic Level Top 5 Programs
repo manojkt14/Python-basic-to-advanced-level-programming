@@ -57,3 +57,101 @@ def calculate():
 
 # Run the calculator program
 calculate()
+--------------------------------------------------------------------------------------------------------------------------
+Basic Level Program 2: The To-Do List Manager
+"""
+Topics Covered:
+Data Structures: Using a list to store a collection of to-do items.
+Loops: Using a while loop to keep the program running until the user quits.
+Functions: Defining functions for adding, removing, and viewing tasks.
+Conditional Statements: Using if statements to handle different user commands.
+String Manipulation: Formatting the output to display the to-do list clearly.
+
+Scenario: Build a command-line application where a user can add tasks to a list, view all tasks, and remove a task. """
+
+def display_menu():
+    """Prints the main menu options for the to-do list application."""
+    print("\n--- To-Do List Menu ---")
+    print("1. Add Task")
+    print("2. View Tasks")
+    print("3. Remove Task")
+    print("4. Exit")
+    print("-----------------------")
+
+def add_task(todo_list):
+    """
+    Adds a new task to the to-do list.
+    Args:
+        todo_list (list): The list where tasks are stored.
+    """
+    task = input("Enter the task you want to add: ").strip()
+    if task:  # Ensure the task is not empty
+        todo_list.append(task)
+        print(f"Task '{task}' added successfully!")
+    else:
+        print("Task cannot be empty. Please enter a valid task.")
+
+def view_tasks(todo_list):
+    """
+    Displays all tasks currently in the to-do list.
+    Args:
+        todo_list (list): The list containing the tasks.
+    """
+    if not todo_list:
+        print("\nYour to-do list is empty!")
+    else:
+        print("\n--- Your Tasks ---")
+        for i, task in enumerate(todo_list, 1):
+            print(f"{i}. {task}")
+        print("------------------")
+
+def remove_task(todo_list):
+    """
+    Removes a task from the to-do list based on its number.
+    Args:
+        todo_list (list): The list containing the tasks.
+    """
+    if not todo_list:
+        print("\nYour to-do list is already empty. Nothing to remove.")
+        return
+
+    view_tasks(todo_list) # Show tasks to help user choose
+    
+    while True:
+        try:
+            task_num_str = input("Enter the number of the task to remove: ")
+            task_num = int(task_num_str)
+            
+            if 1 <= task_num <= len(todo_list):
+                removed_task = todo_list.pop(task_num - 1) # Lists are 0-indexed
+                print(f"Task '{removed_task}' removed successfully!")
+                break
+            else:
+                print("Invalid task number. Please enter a number from the list.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def main():
+    """Main function to run the to-do list application."""
+    tasks = [] # Initialize an empty list to store tasks
+
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1-4): ").strip()
+
+        if choice == '1':
+            add_task(tasks)
+        elif choice == '2':
+            view_tasks(tasks)
+        elif choice == '3':
+            remove_task(tasks)
+        elif choice == '4':
+            print("Exiting to-do list application. Goodbye!")
+            break # Exit the main loop
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+
+# Run the main application
+if __name__ == "__main__":
+    main()
+--------------------------------------------------------------------------------------------------------------------------
