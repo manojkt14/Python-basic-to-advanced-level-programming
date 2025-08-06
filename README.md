@@ -33,11 +33,11 @@ This section includes more complex and challenging projects:
 ## How to Use
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YourUsername/YourRepoName.git](https://github.com/YourUsername/YourRepoName.git)
+    git clone https://github.com/manojkt14/Python-basic-to-advanced-level-programming
     ```
 2.  **Navigate to a program folder:**
     ```bash
-    cd YourRepoName/basic_programs/
+    cd Python-basic-to-advanced-level-programming
     ```
 3.  **Run a program:**
     ```bash
