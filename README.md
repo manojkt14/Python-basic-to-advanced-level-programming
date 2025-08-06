@@ -41,7 +41,7 @@ This section includes more complex and challenging projects:
     ```
 3.  **Run a program:**
     ```bash
-    python your_program.py
+    python3 "Python basic to advanced.py"
     ```
 ## Contributing
 Contributions are welcome! If you have a Python program or a correction to an existing one, feel free to open a pull request.
