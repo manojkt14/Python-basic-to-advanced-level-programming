@@ -1,0 +1,59 @@
+Basic Level Program 1: The Simple Calculator
+"""
+Variables: Storing numbers.
+Data Types: Integers (int) and floating-point numbers (float).
+Input/Output: Taking user input and printing results.
+Operators: Basic arithmetic operators (+, -, *, /).
+Conditional Statements: Using if, elif, and else to perform different operations based on user choice.
+Functions (Optional but recommended): Encapsulating the calculation logic in a function to make the code reusable.
+
+Scenario: Create a program that asks the user for two numbers and an operation (add, subtract, multiply, or divide) and then prints the result. """
+
+def calculate():
+ 
+    print("Welcome to the Basic Calculator!")
+
+    # Loop to ensure valid first number input
+    while True:
+        try:
+            num1 = float(input("Enter the first number: "))
+            break  # Exit loop if input is valid
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    # Loop to ensure valid second number input
+    while True:
+        try:
+            num2 = float(input("Enter the second number: "))
+            break  # Exit loop if input is valid
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    # Loop to ensure valid operation input
+    while True:
+        operation = input("Enter the operation (add, subtract, multiply, divide): ").lower()
+        if operation in ["add", "subtract", "multiply", "divide"]:
+            break  # Exit loop if input is valid
+        else:
+            print("Invalid operation. Please choose from 'add', 'subtract', 'multiply', or 'divide'.")
+
+    result = None
+
+    if operation == "add":
+        result = num1 + num2
+    elif operation == "subtract":
+        result = num1 - num2
+    elif operation == "multiply":
+        result = num1 * num2
+    elif operation == "divide":
+        if num2 != 0:  # Handle division by zero
+            result = num1 / num2
+        else:
+            print("Error: Cannot divide by zero!")
+            return # Exit function if division by zero occurs
+    
+    if result is not None: # Only print result if a calculation was performed
+        print(f"The result of {num1} {operation} {num2} is: {result}")
+
+# Run the calculator program
+calculate()
